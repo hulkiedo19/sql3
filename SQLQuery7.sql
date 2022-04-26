@@ -1,0 +1,7 @@
+CREATE TABLE Subjects (
+	Id INT PRIMARY KEY IDENTITY,
+	[Name] NVARCHAR(MAX) NOT NULL,
+	[Description] NVARCHAR(MAX) NOT NULL,
+	InventoryNumber NVARCHAR(30) NOT NULL,
+	Quantity INT NOT NULL
+);
