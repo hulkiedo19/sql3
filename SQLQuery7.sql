@@ -5,3 +5,12 @@ CREATE TABLE Subjects (
 	InventoryNumber NVARCHAR(30) NOT NULL,
 	Quantity INT NOT NULL
 );
+
+CREATE TABLE Processes (
+	Id INT PRIMARY KEY IDENTITY,
+	[Description] NVARCHAR(MAX) NOT NULL,
+	UsedSubject INT FOREIGN KEY REFERENCES Subjects(Id),
+	StartDate DATE NOT NULL,
+	EndDate DATE NOT NULL,
+	IsCompleted NVARCHAR(20) NOT NULL
+);
