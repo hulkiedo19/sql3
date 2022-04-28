@@ -1,9 +1,14 @@
+CREATE TABLE SubjectTypes (
+	SubjectTypeId INT PRIMARY KEY IDENTITY,
+	[Name] NVARCHAR(MAX) NOT NULL,
+	[Description] NVARCHAR(MAX) NOT NULL
+);
+
 CREATE TABLE Subjects (
 	Id INT PRIMARY KEY IDENTITY,
-	[Name] NVARCHAR(MAX) NOT NULL,
-	[Description] NVARCHAR(MAX) NOT NULL,
+	SubjectType INT FOREIGN KEY REFERENCES SubjectTypes(SubjectTypeId),
 	InventoryNumber NVARCHAR(30) NOT NULL,
-	Quantity INT NOT NULL
+	AmountSubjects INT NOT NULL
 );
 
 CREATE TABLE Processes (
@@ -12,5 +17,7 @@ CREATE TABLE Processes (
 	UsedSubject INT FOREIGN KEY REFERENCES Subjects(Id),
 	StartDate DATE NOT NULL,
 	EndDate DATE NOT NULL,
+	UsedEmployeeNumber INT NOT NULL,
+	Department NVARCHAR(MAX) NOT NULL,
 	IsCompleted NVARCHAR(20) NOT NULL
 );
